@@ -1,2 +1,7 @@
-export declare function once<T extends any[], R>(fn: (...args: T) => R): (...args: T) => R | undefined;
-export declare function onceStrict<T extends any[], R>(fn: (...args: T) => R): (...args: T) => R;
+export declare function once<T extends (...args: any[]) => any>(
+  fn: T
+): (...args: Parameters<T>) => ReturnType<T> | undefined;
+
+export declare function onceStrict<T extends (...args: any[]) => any>(
+  fn: T
+): (...args: Parameters<T>) => ReturnType<T>;
